@@ -22,28 +22,29 @@ def Read_files(file_name):
                 this_dist = CalculDistance(x1=float(Atoms[elt][31:38].strip()),x2 = float(Atoms[r][31:38].strip()),
                                             y1= float(Atoms[elt][39:46].strip()),y2= float(Atoms[r][39:46].strip()),
                                             z1=float(Atoms[elt][47:54].strip()),z2=float(Atoms[r][47:54].strip()))
-                if a =="AA":
-                    dist["AA"].append(this_dist)
-                elif a == "AU" or a == "UA":
-                    dist["AU"].append(this_dist)
-                elif a == "AC" or a == "CA":
-                    dist["AC"].append(this_dist)
-                elif a == "AG" or a == "GA":
-                    dist["AG"].append(this_dist)
-                elif a == "UU":
-                    dist["UU"].append(this_dist)
-                elif a == "UG" or a == "GU":
-                    dist["UG"].append(this_dist)
-                elif a == "UC" or a == "CU":
-                    dist["UC"].append(this_dist)
-                elif a == "CC":
-                    dist["CC"].append(this_dist)
-                elif a == "CG" or a == "GC":
-                    dist["CG"].append(this_dist)
-                elif a == "GG":
-                    dist["GG"].append(this_dist)
-                else:
-                    raise Exception("Are you sure this is an RNA structure?")
+                if this_dist<21:
+                    if a =="AA":
+                        dist["AA"].append(this_dist)
+                    elif a == "AU" or a == "UA":
+                        dist["AU"].append(this_dist)
+                    elif a == "AC" or a == "CA":
+                        dist["AC"].append(this_dist)
+                    elif a == "AG" or a == "GA":
+                        dist["AG"].append(this_dist)
+                    elif a == "UU":
+                        dist["UU"].append(this_dist)
+                    elif a == "UG" or a == "GU":
+                        dist["UG"].append(this_dist)
+                    elif a == "UC" or a == "CU":
+                        dist["UC"].append(this_dist)
+                    elif a == "CC":
+                        dist["CC"].append(this_dist)
+                    elif a == "CG" or a == "GC":
+                        dist["CG"].append(this_dist)
+                    elif a == "GG":
+                        dist["GG"].append(this_dist)
+                    else:
+                        raise Exception("Are you sure this is an RNA structure?")
                     
     return dist 
    
@@ -74,7 +75,7 @@ def CalculFrequencies(input_file):
         "GG":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0},
     }
     N = pd.DataFrame.from_dict(Nr)
-    for interval in range(0,20):
+    for interval in range(0,21):
         for key1,key2 in zip(distance,N.columns):
                 if key1 == key2:
                     for v in distance[key1]:
