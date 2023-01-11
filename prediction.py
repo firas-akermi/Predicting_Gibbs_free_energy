@@ -32,16 +32,6 @@ def Interpolation(scores,pdb_file):
             df_interp[col].append(formula)
     print("The Predicted Gibbs free energy for the RNA structure {0} is : {1}".format(name.split(".")[0],gibbs))
     
-            
-
-    
-
-    
-    
-
-            
-         
-
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description="Python script to Plot free energy")
     parser.add_argument("-s","--Scores_directory",help="The directory tha contains scores files",type = str, required = True)
