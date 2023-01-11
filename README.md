@@ -17,8 +17,8 @@ It  calculates the distances for a given RNA structure. Using the same distance 
 # Dependencies
 To run the scripts numpy and pandas must be installed:
 ```
-pip install pandas
 pip install numpy
+pip install pandas
 ```
 # Pipeline execution
 1. First, clone the github repository:
